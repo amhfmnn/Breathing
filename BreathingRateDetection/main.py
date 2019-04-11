@@ -13,7 +13,7 @@ cap = cv2.VideoCapture(filename)
 #    cap = cv2.VideoCapture(0)
 
 ret, frame = cap.read()
-cv2.imshow('im', frame)
+frame = frame.astype(float)
 sampleAndRunLoop(cap)
 
 cap.release()

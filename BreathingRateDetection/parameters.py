@@ -8,4 +8,6 @@ getParam = {
         "pyramidDepth": 4,
         "pyramidLevel": 0,
         "fft_count_diff": 20,
+        "upper_left": (400, 700),
+        "bottom_right": (900, 1080)
 }

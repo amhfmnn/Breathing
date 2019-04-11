@@ -9,13 +9,20 @@ from parameters import getParam
 from buildpyr import buildPyr
 
 def getRegion(frames):
-    return None
+    print(frames.shape)
+    #Selection region of interest in the video stream
+    rect_img = frames[(400, 700)[1]: (900, 1080)[1], (400, 700)[0]: (900, 1080)[0]]
+    print("new Shape")
+    print(rect_img.shape)
+    return rect_img
 
+#Crop the Sample of Frames which are used for compution
 def crop(frames, boundingRects):
-    return frames
+    return frames, boundingRects
 
 def preProcess(vid):
-    print(type(vid))
+    print("New shape=")
+    print(vid.shape)
     vid2 = []
     idx = getParam["pyramidLevel"]
     depth = getParam["pyramidDepth"]

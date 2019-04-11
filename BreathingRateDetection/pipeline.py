@@ -19,7 +19,7 @@ class PipeLine():
         )
 
         # Crop the image to reduce noise and computation time
-        croppedFrames = getModule("Crop")(
+        croppedFrames, roiBoundingRects = getModule("Crop")(
                 inputFrames, 
                 roiBoundingRects
         )

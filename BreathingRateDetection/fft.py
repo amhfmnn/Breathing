@@ -3,7 +3,6 @@ from parameters import getParam
 import numpy as np
 
 def applyFFT(frames, fps):
-    print(int(fps))
     n = frames.shape[0]
     t = np.linspace(0,float(n)/fps, n)
     disp = frames.mean(axis = 0)
@@ -12,11 +11,11 @@ def applyFFT(frames, fps):
     k = np.arange(n)
     T = n/fps
     frq = k/T # two sides frequency range
-    freqs = frq[range(n/2)] # one side frequency range
-
+    #print(type(frq[range(n//2)])) # one side frequency range
+    freqs = frq[range(n//2)]# one side frequency range
     Y = np.fft.fft(y, axis=0)/n # fft computing and normalization
-    signals = Y[range(n/2), :,:]
-
+    signals = Y[range(n//2), :,:]
+    print("worked")
     return freqs, signals
 
 def bandPass(freqs, signals, freqRange):
@@ -79,5 +78,6 @@ def searchFreq(freqs, signals, frames, fs):
         rate = rate_fft
     else:
         rate = rate_count
+
 
     return rate
